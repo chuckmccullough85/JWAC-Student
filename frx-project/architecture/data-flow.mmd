@@ -1,0 +1,25 @@
+flowchart LR
+    %% Representative exchanges accompanying E2/E3 and the E6 ordinary workflow; learners add justified boundaries.
+    EXT[Partner client]
+    INT[Analyst client]
+    ADM[Administrator client]
+    WEB["FRX portal (gateway in deployment proposal)"]
+    INTAKE[Managed intake and registration: outside build]
+    DB[(Identity and report records)]
+    FILES[(File intake store)]
+    LOG[(Event log)]
+    ANALYTICS[Analytics provider]
+
+    EXT -->|credentials, session cookie, report ID, search text, filename and bytes| WEB
+    INT -->|credentials, session cookie, report ID, search text, analytics input| WEB
+    ADM -->|credentials, session cookie, report ID, search text| WEB
+    WEB -->|session cookie, report results, stored filename, status| EXT
+    WEB -->|session cookie, report results, analytics result, status| INT
+    WEB -->|session cookie, report results, status| ADM
+    WEB -->|user lookup, report ID, search criteria| DB
+    DB -->|account and report records| WEB
+    WEB -->|stored filename and file bytes| FILES
+    WEB -->|event records| LOG
+    WEB -->|request containing report identifier| ANALYTICS
+    ANALYTICS -->|report identifier and score| WEB
+    INTAKE -.->|registered reports, owner and analyst assignment metadata| DB
