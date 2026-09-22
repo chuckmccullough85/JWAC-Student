@@ -1,0 +1,7 @@
+.venv
+
+#ignore python temps
+__pycache__/
+*.pyc
+*.pyo
+*.pyd

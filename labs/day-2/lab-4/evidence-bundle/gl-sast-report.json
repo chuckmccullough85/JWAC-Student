@@ -1,0 +1,103 @@
+{
+  "version": "15.2.0",
+  "scan": {
+    "analyzer": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "version": "course-fixture-1.0",
+      "vendor": {
+        "name": "Course fixture"
+      }
+    },
+    "scanner": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "version": "course-fixture-1.0",
+      "vendor": {
+        "name": "Course fixture"
+      }
+    },
+    "type": "sast",
+    "status": "success",
+    "start_time": "2026-09-10T14:00:00",
+    "end_time": "2026-09-10T14:00:03"
+  },
+  "vulnerabilities": [
+    {
+      "id": "SAST-001",
+      "category": "sast",
+      "name": "Hard-coded secret assigned to framework configuration",
+      "description": "A string literal is assigned to SECRET_KEY.",
+      "severity": "High",
+      "confidence": "High",
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "python.flask.hardcoded-secret-key",
+          "value": "python.flask.hardcoded-secret-key"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-798",
+          "value": "798"
+        }
+      ],
+      "location": {
+        "file": "frx-project/src/frx_portal/states/vulnerable.py",
+        "start_line": 22,
+        "end_line": 22
+      }
+    },
+    {
+      "id": "SAST-002",
+      "category": "sast",
+      "name": "Weak hash used in credential path",
+      "description": "MD5 is used by the password-hash function.",
+      "severity": "Medium",
+      "confidence": "High",
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "python.lang.security.audit.md5-used",
+          "value": "python.lang.security.audit.md5-used"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-328",
+          "value": "328"
+        }
+      ],
+      "location": {
+        "file": "frx-project/src/frx_portal/states/vulnerable.py",
+        "start_line": 30,
+        "end_line": 30
+      }
+    },
+    {
+      "id": "SAST-003",
+      "category": "sast",
+      "name": "User-influenced URL reaches server-side request",
+      "description": "A request-derived URL reaches urllib.request.urlopen.",
+      "severity": "High",
+      "confidence": "Medium",
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "python.lang.security.audit.dynamic-url-open",
+          "value": "python.lang.security.audit.dynamic-url-open"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-918",
+          "value": "918"
+        }
+      ],
+      "location": {
+        "file": "frx-project/src/frx_portal/states/vulnerable.py",
+        "start_line": 168,
+        "end_line": 168
+      }
+    }
+  ],
+  "fixture_notice": "Sanitized schema-inspired training fixture; not a live GitLab export."
+}

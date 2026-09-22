@@ -1,0 +1,79 @@
+{
+  "pipeline_id": "FRX-PIPE-006",
+  "created_at": "2026-09-10T14:00:00Z",
+  "baseline": "FRX-LEARNER-BASELINE",
+  "application_state": "vulnerable",
+  "fixture_kind": "course-authored sanitized evidence bundle",
+  "scope": {
+    "included": [
+      "frx-project/src/frx_portal/states/vulnerable.py",
+      "frx-project/tests/conftest.py",
+      "frx-project/pyproject.toml",
+      "requirements.txt"
+    ],
+    "excluded": [
+      "git history before the bound baseline",
+      "deployment cache and proxy configuration",
+      "customer license allowlist and approval records",
+      "live enterprise tool configuration"
+    ]
+  },
+  "source_inputs": [
+    {
+      "path": "frx-project/src/frx_portal/states/vulnerable.py",
+      "sha256": "8bcf11671e72e78b5e6acf5528e8eba6274398992a89db5283a51bcbcea10a3a"
+    },
+    {
+      "path": "frx-project/tests/conftest.py",
+      "sha256": "d688af4f9d1df64eba96eba617a0e505cd8d8c74492ee53c59b654cd93edce53"
+    },
+    {
+      "path": "frx-project/pyproject.toml",
+      "sha256": "73895d9ddb2adab85df59f48a15d5c94c9f46d4c84ab30fc5b973e7cec09b11d"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "4928b156101619d8dab3a2b7f41696dc3b87dc21c2d1b0d0ac9e81ace30c9b76"
+    }
+  ],
+  "jobs": [
+    {
+      "name": "semgrep-sast",
+      "status": "success",
+      "report": "gl-sast-report.json",
+      "rules_profile": "course-fixture-1.0",
+      "coverage_note": "bound Python source file only"
+    },
+    {
+      "name": "secret-detection",
+      "status": "success",
+      "report": "gl-secret-detection-report.json",
+      "rules_profile": "course-fixture-1.0",
+      "coverage_note": "bound source and test fixture; no prior-history scan"
+    },
+    {
+      "name": "sbom",
+      "status": "success",
+      "report": "frx.cdx.json",
+      "generator": "course-sbom-fixture 1.0",
+      "coverage_note": "direct plus selected transitive components; composition marked incomplete"
+    },
+    {
+      "name": "sbom-research",
+      "status": "success",
+      "report": "frx_report.txt",
+      "format_profile": "public SBOM-Researcher main README and report fields observed 2026-09-10",
+      "database_snapshot": "OSV record captured 2026-09-10",
+      "coverage_note": "offline frozen report; no live advisory query"
+    }
+  ],
+  "artifact_hashes": {
+    "frx.cdx.json": "a1e0cc8ad7f2d1a22952c662c66874a909cbd75f26c28a272feb1e48147c504e",
+    "frx_report.txt": "125be5bd82d8980ea418e54c8ce52b9cafd3e7a84acee82d3d3997786f1a1119",
+    "frx_vulns.json": "e1cb9ea617a0cc076eedd36d0a0330234ae7b81e868b31ca74c3230fc5957648",
+    "gl-sast-report.json": "c921bdb983121b274483f3310cf37c4f5d037323df29ee149ddb3ce32d8bd3a1",
+    "gl-secret-detection-report.json": "a0679215400effa7bee4294f798863e2238d8acd3b5ca8b31b6c6fcb39a4da73",
+    "pipeline-policy.json": "9892ac2ff10870ec807519ab0cb46b01fc4af60718fbc05a8d34f87d92d9cc0d"
+  },
+  "format_limit": "Artifacts are learner-safe training fixtures, not live customer exports or approval evidence."
+}

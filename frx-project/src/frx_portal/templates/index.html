@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Field Research Exchange</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='client.css') }}">
+  <script src="{{ url_for('static', filename='client.js') }}" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">FRX</span>
+      <div>
+        <p class="brand-name">Field Research Exchange</p>
+        <p class="brand-context">Research Operations</p>
+      </div>
+    </div>
+    <div class="session-area">
+      <span id="session-user">Not signed in</span>
+      <button id="logout-button" class="button button-quiet" type="button" hidden>Sign out</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="login-view" class="login-layout" aria-labelledby="login-heading">
+      <div class="intro-panel">
+        <p class="eyebrow">Partner report review</p>
+        <h1>Review field observations before the weekly planning meeting.</h1>
+        <p>FRX gives partners and analysts a shared place to find registered reports, read observations, and request supporting analytics.</p>
+        <div class="workflow-strip" aria-label="FRX workflow">
+          <span>Sign in</span><span aria-hidden="true">→</span>
+          <span>Find a report</span><span aria-hidden="true">→</span>
+          <span>Review observations</span>
+        </div>
+      </div>
+      <form id="login-form" class="card login-card">
+        <p class="eyebrow">Account access</p>
+        <h2 id="login-heading">Sign in to FRX</h2>
+        <label for="username">Username</label>
+        <input id="username" name="username" autocomplete="username" required>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+        <button class="button button-primary" type="submit">Sign in</button>
+        <p id="login-message" class="message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="workspace-view" class="workspace" hidden>
+      <aside class="sidebar" aria-label="FRX areas">
+        <p class="sidebar-label">Workspace</p>
+        <a class="nav-item active" href="#reports">Reports</a>
+        <a class="nav-item" href="#intake">Document intake</a>
+        <div class="sidebar-note">
+          <strong>Service status</strong>
+          <span id="service-status">Checking service…</span>
+        </div>
+      </aside>
+
+      <div class="content">
+        <section id="reports" class="content-section" aria-labelledby="reports-heading">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Registered reports</p>
+              <h1 id="reports-heading">Find field observations</h1>
+            </div>
+            <form id="search-form" class="search-form" role="search">
+              <label class="sr-only" for="search-input">Search report titles and summaries</label>
+              <input id="search-input" name="q" placeholder="Search titles and summaries">
+              <button class="button button-primary" type="submit">Search</button>
+            </form>
+          </div>
+
+          <div class="reports-layout">
+            <div class="card list-card">
+              <div class="card-heading">
+                <h2>Results</h2>
+                <span id="result-count" class="count">0 reports</span>
+              </div>
+              <div id="report-list" class="report-list" aria-live="polite"></div>
+            </div>
+
+            <article class="card detail-card" aria-labelledby="report-title">
+              <div id="report-empty" class="empty-state">
+                <span class="empty-icon" aria-hidden="true">FR</span>
+                <h2>Select a report</h2>
+                <p>Choose a result to review its registered owner, analyst assignment, and observations.</p>
+              </div>
+              <div id="report-detail" hidden>
+                <div class="detail-kicker">
+                  <span id="report-id" class="record-id"></span>
+                  <span id="report-classification" class="classification"></span>
+                </div>
+                <h2 id="report-title"></h2>
+                <dl class="metadata">
+                  <div><dt>Owning partner</dt><dd id="report-owner"></dd></div>
+                  <div><dt>Assigned analyst</dt><dd id="report-analyst"></dd></div>
+                </dl>
+                <h3>Field observations</h3>
+                <p id="report-summary" class="summary"></p>
+                <div class="analytics-row">
+                  <div><span class="field-label">Analytics</span><p id="analytics-result">No score requested</p></div>
+                  <button id="analytics-button" class="button button-secondary" type="button">Request score</button>
+                </div>
+              </div>
+              <p id="report-message" class="message" role="status" aria-live="polite"></p>
+            </article>
+          </div>
+        </section>
+
+        <section id="intake" class="content-section intake-section" aria-labelledby="intake-heading">
+          <div class="card intake-card">
+            <div>
+              <p class="eyebrow">Supporting material</p>
+              <h2 id="intake-heading">Submit a document to intake</h2>
+              <p>The intake function stores a standalone document. Report association and retrieval are handled outside this interface.</p>
+            </div>
+            <form id="upload-form" class="upload-form">
+              <label for="document">Document</label>
+              <input id="document" name="document" type="file" required>
+              <button class="button button-secondary" type="submit">Submit document</button>
+              <p id="upload-message" class="message" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

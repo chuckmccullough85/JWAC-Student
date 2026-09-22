@@ -1,0 +1,29 @@
+{
+  "change_bundle": "FRX-CHANGE-007",
+  "before_baseline": "FRX-LEARNER-BASELINE / vulnerable",
+  "proposed_state": "FRX-REMEDIATED-REFERENCE / remediated",
+  "fixture_kind": "course-authored bounded change excerpts and proof runner",
+  "generated_on": "2026-09-10",
+  "source_inputs": {
+    "frx-project/src/frx_portal/states/vulnerable.py": "8bcf11671e72e78b5e6acf5528e8eba6274398992a89db5283a51bcbcea10a3a",
+    "frx-project/src/frx_portal/states/remediated.py": "66b7640481521febc5f9902f8c80837d862e08593a60d40ee47a6d6a8917f96c",
+    "frx-project/tests/test_state_characterization.py": "b61c9db1feab22528e48365a71a91bd01df8c882e6b5f422abc4fa224c190e4b",
+    "frx-project/tests/test_baseline.py": "a24153195d343de740962b0dd2f1a266f109f9a260438e9a26d0f8b185763799",
+    "frx-project/tests/test_outbound_boundary.py": "4f6ee87a940fdcabd458d236587a9690f327bac96978ad8ea1e7f7029ab41ee9"
+  },
+  "evidence_artifacts": {
+    "labs/day-2/lab-5/change-bundle/patch-catalog.pdf": "d014d897e2b83e90e38a80b5e3ada5daa6438c833633625b680f13da4aabe94a"
+  },
+  "handling": {
+    "network_listener_started": false,
+    "external_network_used": false,
+    "repository_runtime_modified": false,
+    "secret_material_returned": false,
+    "remediation_disposition_preassigned": false
+  },
+  "limits": [
+    "The patch catalog contains bounded course excerpts, not the complete remediated reference source.",
+    "The proof runner records observations and does not assign remediation status, final risk, residual-risk acceptance, or a release recommendation.",
+    "Operational deployment, customer policy, and enterprise control evidence are not represented by this local fixture."
+  ]
+}

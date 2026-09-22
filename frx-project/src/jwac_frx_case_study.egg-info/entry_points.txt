@@ -1,0 +1,4 @@
+[console_scripts]
+frx-fixture = frx_portal.fixture_service:main
+frx-portal = frx_portal.cli:main
+frx-reset = frx_portal.database:main

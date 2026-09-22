@@ -1,0 +1,40 @@
+{
+  "snapshot": {
+    "source": "OSV API record",
+    "captured_at": "2026-09-10T14:00:00Z",
+    "offline_fixture": true
+  },
+  "component": {
+    "name": "Flask",
+    "version": "3.1.2",
+    "purl": "pkg:pypi/flask@3.1.2",
+    "license": "BSD-3-Clause"
+  },
+  "vulnerabilities": [
+    {
+      "id": "GHSA-68rp-wp8r-4726",
+      "aliases": [
+        "CVE-2026-27205",
+        "PYSEC-2026-2151"
+      ],
+      "source": "https://osv.dev/vulnerability/GHSA-68rp-wp8r-4726",
+      "summary": "Flask session access can omit Vary: Cookie for some access forms",
+      "affected": "Flask versions earlier than 3.1.3",
+      "fixed": "3.1.3",
+      "severity": {
+        "system": "CVSS_V4",
+        "score": 2.3,
+        "rating": "Low",
+        "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N"
+      },
+      "required_conditions": [
+        "deployment uses a caching proxy that can cache responses with cookies",
+        "response lacks a private or no-cache Cache-Control policy",
+        "application checks session membership without reading or mutating the session"
+      ],
+      "cwe_ids": [
+        "CWE-524"
+      ]
+    }
+  ]
+}

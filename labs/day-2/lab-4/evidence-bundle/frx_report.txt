@@ -1,0 +1,55 @@
+FRX SBOM-Researcher-style training report
+Frozen: 2026-09-10T14:00:00Z
+Source SBOM: frx.cdx.json
+ListAll: true
+PrintLicenseInfo: true
+Report minimum score: 0.0
+Release-gate threshold: 7.0 (see pipeline-policy.json)
+NOTICE: Course-authored format fixture based on public SBOM-Researcher fields; not a live or customer-approved pipeline export.
+
+------------------------------------------------------------
+- Component: Flask 3.1.2
+------------------------------------------------------------
+License info: BSD-3-Clause
+
+Vulnerability: GHSA-68rp-wp8r-4726
+Source: OSV / GitHub Advisory Database
+Summary: Flask session access can omit Vary: Cookie for some access forms
+Details: Applicability depends on cache behavior, response cache policy, and the application's form of session access.
+Fixed Version: 3.1.3
+Score page: https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N
+CVSS Breakdown: CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N
+CVSS Severity: Low (2.3)
+
+##############
+- Recommended Version to upgrade to that addresses all listed Flask 3.1.2 vulnerabilities: 3.1.3
+##############
+
+------------------------------------------------------------
+- Component: cryptography 46.0.5
+------------------------------------------------------------
+License info: Apache-2.0 OR BSD-3-Clause
+No vulnerability record is present in this frozen report.
+
+------------------------------------------------------------
+- Component: Werkzeug 3.1.8
+------------------------------------------------------------
+License info: BSD-3-Clause
+No vulnerability record is present in this frozen report.
+
+=========================================================
+= License action summary from the fixture profile
+=========================================================
+- Low Action Licenses found in this SBOM: Apache-2.0, BSD-3-Clause
+- Medium Action Licenses found in this SBOM: none
+- High Action Licenses found in this SBOM: none
+- Unmapped Licenses found in this SBOM: none in the three reported components
+
+=========================================================
+= Evidence limitations
+=========================================================
+- The CycloneDX composition is explicitly incomplete.
+- The resolved dependency lock contains more packages than this SBOM.
+- "No vulnerability record" means only that this frozen report contains no match for that component; it is not negative proof.
+- The 7.0 release threshold orders gate work; it does not invalidate the 2.3 advisory or decide FRX applicability.
+- Tool license action levels do not replace the governing organizational license policy or owner decision.

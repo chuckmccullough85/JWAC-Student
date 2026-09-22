@@ -1,0 +1,24 @@
+{
+  "policy_id": "FRX-PIPE-POLICY-01",
+  "effective_for": "FRX-PIPE-006 training fixture",
+  "sast_gate": {
+    "threshold": "High",
+    "action": "requires reviewed disposition before release"
+  },
+  "secret_gate": {
+    "threshold": "High",
+    "action": "requires reviewed disposition before release"
+  },
+  "vulnerability_gate": {
+    "cvss_minimum": 7.0,
+    "action": "requires recorded approval or correction before release"
+  },
+  "license_gate": {
+    "tool_action_level": "High",
+    "organizational_allowlist": null,
+    "owner": "software supply-chain authority",
+    "note": "A tool action level is queue metadata. License approval requires the governing organizational policy and accountable owner."
+  },
+  "deviation_owner": "software quality assurance plan owner",
+  "course_limit": "This fixture supplies a practice threshold, not customer approval authority."
+}
